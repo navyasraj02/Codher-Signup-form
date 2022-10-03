@@ -1,9 +1,6 @@
 from codecs import getencoder
-from concurrent.futures.process import _ResultItem
 from platform import python_version
 from django.db import models
-
-# Create your models here.
 
 
 class AddDetails(models.Model):
@@ -16,4 +13,7 @@ class AddDetails(models.Model):
     bio = models.TextField()
     jobRole = models.CharField(max_length=200, null=False, blank=False)
     interests = models.CharField(max_length=200, null=False, blank=False)
-    password = models.CharField(max_length=50)
+    password = models.CharField(max_length=50, blank=False)
+
+    def __str__(self):
+        return self.emailAdd
